@@ -1,8 +1,9 @@
 /* Reset default margin and padding */
 body, ul {
     margin: 0;
-    padding: 0;
-}
+    padding:0;
+
+}}
 .title{
 
     	color: #3498db;

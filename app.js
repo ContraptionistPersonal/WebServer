@@ -24,30 +24,48 @@ app.use('/users', usersRouter);
 
 app.get('/signup', function(req,res){
 
-		res.render("signuppage");
+	res.render("signuppage", {styleLink:"./stylesheets/signup.css"});
 
-	});
+});
+
+app.get('/partnerlogin',function(req,res){
+
+	res.render("partnerlogin");
+})
 
 app.get('/submit',function(req,res){
 
-	
-
-	let DBPath = path.join(__dirname,"database/");
-	let fileContent = req.query.name
-	
-	fs.readdir(DBPath,(err,file) =>{
-
+	fs.readdir(path.join(__dirname,"database/"),(err,file)=>{
 		
+		for(i=0;i<=file.length;i++){
+			console.log(file[i]);
 
-
-
-	})
-
-	fs.writeFile(DBPath+"userfile",fileContent,(err)=>{
-		if(err){
-			console.log(err);
 		}
-	})
+	
+
+	});
+
+	let fileContent = {
+		name:req.query.name
+		,email:req.query.email
+		,password:req.query.password,
+	}
+	
+	const numFiles = new Promise((resolve,reject)=>{
+
+		let DBPath = path.join(__dirname,"database/");
+		fs.readdir(DBPath,(err,file) =>{	
+			fs.writeFile(DBPath+"userfile"+file.length+".json",JSON.stringify(fileContent),(err)=>{
+				if(err){
+					reject(err);
+				}
+				else{
+					
+					resolve(file.length);
+				}
+			});
+		});
+	});
 	
 })
 /*
