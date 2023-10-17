@@ -4,7 +4,7 @@ on:
 
 jobs:
   start_test_job:
-  runs-on: self-hosted
-  steps:
-    - name: "Start First Job"
-      run: echo test
+    runs-on: self-hosted
+    steps:
+      - name: "Start First Job"
+        run: echo test
