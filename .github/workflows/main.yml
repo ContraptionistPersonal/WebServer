@@ -1,1 +1,10 @@
 name: test-job
+on:
+  workflow_dispatch:
+
+jobs:
+  start_test_job:
+  runs-on: self-hosted
+  steps:
+    - name: "Start First Job"
+      run: echo test
