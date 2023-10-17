@@ -7,4 +7,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Start First Job"
-        run: echo test
+        run: ls /home
