@@ -1,4 +1,4 @@
-name: test-job
+name: connect-to-github
 on:
   workflow_dispatch:
 
@@ -6,5 +6,9 @@ jobs:
   start_test_job:
     runs-on: self-hosted
     steps:
-      - name: "Start First Job"
-        run: ls /home
+      - name: "change directory"
+        run: cd /home/johnson_ry2004/actions-runner
+      - name: "run shell script"
+        run: ./run.sh
+      - name: "echo"
+        run: echo "Job Complete"
