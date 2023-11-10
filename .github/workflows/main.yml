@@ -1,15 +1,16 @@
 name: connect-to-github
 on:
   schedule:
-    - cron: '*/1 * * * *'
+    - cron: '0 0 */13 * *'
 
 jobs:
   start_test_job:
     runs-on: self-hosted
     steps:
-      - name: "change directory"
-        run: cd /home/johnson_ry2004/actions-runner
-      - name: "run shell script"
-        run: ./run.sh
-      - name: "echo"
-        run: echo "Job Complete"
+      - name: "Start VM"
+ #       run: gcloud compute instances start github-actions-runner-1 --zone australia-southeast-b
+ #     - name: "Sleep for 30 seconds"
+ #       run: sleep 60s
+ #       shell: bash
+ #     - name: "Stop VM"
+ #       run: gcloud compute instances stop github-actions-runner-1 --zone australia-southeast-b
